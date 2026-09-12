@@ -430,38 +430,347 @@
         to { opacity: 1; transform: translateY(0); }
       }
 
-      /* Cards & Grids */
+      /* Hero Grid & Elements */
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: clamp(1.75rem, 4vw, 3rem);
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: clamp(2rem, 4vw, 3.5rem);
         align-items: center;
       }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
+      .hero-tag-line {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--accent-gold);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.85rem;
+      }
+      .hero-tag-line::before {
+        content: "";
+        display: inline-block;
+        width: 18px;
+        height: 2px;
+        background: var(--accent-gold);
+      }
+
+      .hero-headline {
+        font-size: clamp(2.3rem, 4.8vw, 3.6rem);
+        font-weight: 800;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-subtext {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin-bottom: 2rem;
+        max-width: 540px;
+      }
+
+      .hero-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+
+      .btn-hero-call {
+        background: #e5a93c;
+        color: #141f17;
+        font-weight: 800;
+        font-size: 0.92rem;
+        padding: 0.85rem 1.75rem;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        letter-spacing: 0.04em;
+        transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+        border: none;
+      }
+      .btn-hero-call:hover {
+        background: #f0b429;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(229, 169, 60, 0.35);
+      }
+
+      .btn-hero-wa {
+        background: rgba(20, 31, 23, 0.6);
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 0.88rem;
+        padding: 0.85rem 1.75rem;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        letter-spacing: 0.08em;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        transition: all 0.2s ease;
+      }
+      .btn-hero-wa:hover {
+        border-color: var(--accent-gold);
+        color: var(--accent-gold);
+        background: rgba(20, 31, 23, 0.9);
+      }
+      [data-theme="light"] .btn-hero-wa {
+        background: #ffffff;
+        color: #1a251d;
+        border: 1px solid #d1d5db;
+      }
+
+      /* Hero Visual Container & Exact Alignment */
       .hero-visual-card {
+        background: var(--bg-forest-card);
+        border: 1px solid var(--border-line-gold);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        height: 460px;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+      }
+      .hero-visual-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+
+      .hero-badge-gold {
+        position: absolute;
+        bottom: 1.25rem;
+        left: 1.25rem;
+        background: #e5a93c;
+        color: #141f17;
+        padding: 0.65rem 0.95rem;
+        border-radius: 6px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        z-index: 2;
+        line-height: 1.15;
+      }
+      .hero-badge-gold .hb-title {
+        font-weight: 800;
+        font-size: 1.12rem;
+      }
+      .hero-badge-gold .hb-sub {
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-top: 0.2rem;
+        color: rgba(20, 31, 23, 0.85);
+      }
+
+      .hero-badge-pill {
+        position: absolute;
+        bottom: 1.25rem;
+        right: 1.25rem;
+        background: rgba(14, 24, 18, 0.88);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 0.4rem 0.85rem;
+        border-radius: 9999px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        z-index: 2;
+      }
+
+      /* 4-Column Gold Bar */
+      .hero-gold-strip {
+        background: #e5a93c;
+        color: #141f17;
+        border-radius: 8px;
+        margin-top: 2.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(229, 169, 60, 0.25);
+      }
+      @media (max-width: 768px) {
+        .hero-gold-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .hero-strip-col {
+        padding: 1.1rem 0.75rem;
+        text-align: center;
+        border-right: 1px solid rgba(20, 31, 23, 0.18);
+      }
+      .hero-strip-col:last-child {
+        border-right: none;
+      }
+      .hero-strip-title {
+        font-weight: 800;
+        font-size: 0.98rem;
+        letter-spacing: 0.06em;
+      }
+      .hero-strip-sub {
+        font-size: 0.72rem;
+        font-weight: 700;
+        opacity: 0.82;
+        margin-top: 0.2rem;
+        letter-spacing: 0.04em;
+      }
+
+      /* Available Rentals 3-Card Grid */
+      .rental-system-card {
         background: var(--bg-forest-card);
         border: 1px solid var(--border-line);
         border-radius: 12px;
         overflow: hidden;
-        position: relative;
-      }
-
-      .hero-visual-card img {
-        width: 100%;
-        height: 360px;
-        object-fit: cover;
-      }
-
-      .hero-badge-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(16, 26, 18, 0.95), rgba(16, 26, 18, 0.6) 70%, transparent);
-        padding: 1.25rem;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .rental-system-card:hover {
+        border-color: var(--accent-gold);
+        transform: translateY(-3px);
+      }
+      .rental-card-img {
+        position: relative;
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        background: #141f17;
+      }
+      .rental-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      .rental-system-card:hover .rental-card-img img {
+        transform: scale(1.03);
+      }
+      .rental-card-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #e5a93c;
+        color: #141f17;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+      }
+      .rental-card-body {
+        padding: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+      .rental-card-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+      }
+      .rental-card-desc {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 1.25rem;
+        flex-grow: 1;
+      }
+      .rental-card-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--accent-gold);
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        transition: gap 0.15s ease;
+      }
+      .rental-card-btn:hover {
+        gap: 0.65rem;
+      }
+
+      /* 6-Card Services Grid (Screenshot 2) */
+      .services-grid-6 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(1rem, 2.5vw, 1.5rem);
+      }
+      @media (max-width: 980px) {
+        .services-grid-6 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .services-grid-6 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .service-feature-card {
+        background: var(--bg-forest-card);
+        border: 1px solid var(--border-line);
+        border-radius: 12px;
+        padding: 1.6rem 1.4rem;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s ease;
+      }
+      .service-feature-card:hover {
+        border-color: var(--accent-gold);
+        transform: translateY(-2px);
+      }
+      .service-icon-wrap {
+        font-size: 1.8rem;
+        margin-bottom: 0.85rem;
+        color: var(--accent-gold);
+      }
+      .service-card-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+      .service-card-text {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 1.25rem;
+        flex-grow: 1;
+      }
+      .service-card-action {
+        margin-top: auto;
+      }
+      .service-link {
+        color: var(--accent-gold);
+        font-size: 0.84rem;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: gap 0.15s ease;
+      }
+      .service-link:hover {
+        gap: 0.6rem;
       }
 
       .grid-3 {
@@ -1206,164 +1515,240 @@
       <!-- VIEW 1: HOME OVERVIEW                                            -->
       <!-- ================================================================= -->
       <div class="page-view active" id="view-home">
-        <!-- Hero Section -->
-        <!-- Hero Section -->
-        <section class="section" style="padding-top: clamp(2rem, 4vw, 3.5rem);">
+        <!-- Redesigned Hero Section (Matching Exact User Reference) -->
+        <section class="section" style="padding-top: clamp(2rem, 4vw, 3.5rem); padding-bottom: 2rem;">
           <div class="container">
             <div class="hero-grid">
-              <!-- Left Text -->
+              <!-- Left Text Column -->
               <div>
-                <div class="micro-label">
-                  <span>[ BANGALORE & PAN-KARNATAKA ]</span>
-                  <span>•</span>
-                  <span>CENTRAL RT NAGAR DEPOT</span>
+                <div class="hero-tag-line">
+                  SCAFFOLDING RENTAL · BANGALORE
                 </div>
-                <h1 style="font-size: clamp(2.1rem, 4vw, 3.3rem); margin: 0.8rem 0 1.1rem 0; line-height: 1.15;">
-                  Engineered Scaffolding & Heavy Shoring, <br />
-                  <span class="text-gold">built safe from the base up</span>.
+                <h1 class="hero-headline">
+                  Access built<br />
+                  for <span class="text-gold">real work.</span>
                 </h1>
-                <p style="font-size: 0.98rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.65;">
-                  Bengaluru's trusted structural equipment rental partner for commercial builders, facade contractors, and event producers. Direct yard supply of certified <a href="#scaffolding" onclick="switchPage('scaffolding')" class="inline-link">MS Cuplock systems</a>, <a href="#scaffolding" onclick="switchPage('scaffolding')" class="inline-link">Aluminium mobile access towers</a>, <a href="#construction" onclick="switchPage('construction')" class="inline-link">adjustable Acrow props</a>, and <a href="#event" onclick="switchPage('event')" class="inline-link">concert stage trussing</a> — dispatched promptly from our <a href="#contact" onclick="switchPage('contact')" class="inline-link">RT Nagar central depot</a>.
+                <p class="hero-subtext">
+                  PARRY'S provides aluminium and MS Cuplock scaffolding on rent for construction, painting, renovation, electrical, HVAC, industrial maintenance and facility projects across Bangalore.
                 </p>
-                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
-                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S%20Scaffolding,%20I%20would%20like%20to%20get%20a%20rental%20quote%20for%20my%20site%20in%20Bangalore." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-                    💬 Request WhatsApp Quote
+                <div class="hero-cta-group">
+                  <a href="tel:+919880504007" class="btn-hero-call">
+                    <span style="font-size: 1.05rem;">📞</span> CALL 98805 04007
                   </a>
-                  <button onclick="switchPage('scaffolding')" class="btn-gold">
-                    Explore Scaffolding &rarr;
-                  </button>
-                  <a href="tel:+919880504007" class="btn-outline">
-                    📞 Call +91 98805 04007
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S%20Scaffolding,%20I%20would%20like%20to%20get%20a%20rental%20quote%20for%20my%20site%20in%20Bangalore." target="_blank" rel="noopener noreferrer" class="btn-hero-wa">
+                    WHATSAPP
                   </a>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; font-size: 0.84rem; color: var(--text-muted);">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="color: var(--accent-gold); font-weight: 700;">&#10004;</span> BIS IS:2750 & OSHA Compliant Stock
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="color: var(--accent-gold); font-weight: 700;">&#10004;</span> Same-Day / 24h Site Dispatch
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="color: var(--accent-gold); font-weight: 700;">&#10004;</span> Certified Scaffolder Teams
-                  </div>
                 </div>
               </div>
 
-              <!-- Right Real Scaffolding Photo Card -->
+              <!-- Right Hero Visual Card (Perfect Alignment & Verified Aluminium Mobile Tower) -->
               <div>
                 <div class="hero-visual-card">
                   <img 
-                    src="/images/hero-scaffolding.jpg" 
-                    alt="Multi-tier steel tubular scaffolding with safety net installation on building facade in Bangalore"
+                    src="/images/aluminium-tower.jpg" 
+                    alt="Aluminium mobile access tower scaffolding on heavy-duty lockable caster wheels"
                   />
-                  <div class="hero-badge-overlay">
-                    <div class="micro-label" style="color: var(--accent-gold);">PARRY'S VERIFIED DEPLOYMENT</div>
-                    <div style="font-weight: 700; font-size: 0.95rem;">Multi-Tier External Facade Scaffolding</div>
-                    <div style="font-size: 0.76rem; color: var(--text-muted);">
-                      Heavy tubular steel scaffolding with double handrails, toe-boards, and green Scafftag safety handover.
-                    </div>
+                  <div class="hero-badge-gold">
+                    <div class="hb-title">On rent</div>
+                    <div class="hb-sub">CALL TO CONFIRM<br />AVAILABILITY</div>
+                  </div>
+                  <div class="hero-badge-pill">
+                    ALUMINIUM MOBILE TOWER
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Trust & Metric Statistics Bar -->
-            <div class="stats-strip">
-              <div class="stat-item">
-                <div class="stat-val">15+</div>
-                <div class="stat-lbl">Years Serving Bangalore</div>
+            <!-- 4-Column Industrial Gold Bar (Screenshot 1) -->
+            <div class="hero-gold-strip">
+              <div class="hero-strip-col">
+                <div class="hero-strip-title">ALUMINIUM</div>
+                <div class="hero-strip-sub">LIGHTWEIGHT ACCESS</div>
               </div>
-              <div class="stat-item">
-                <div class="stat-val">500+</div>
-                <div class="stat-lbl">Metric Tonnes Ready Stock</div>
+              <div class="hero-strip-col">
+                <div class="hero-strip-title">MS CUPLOCK</div>
+                <div class="hero-strip-sub">HEAVY-DUTY SYSTEMS</div>
               </div>
-              <div class="stat-item">
-                <div class="stat-val">1,200+</div>
-                <div class="stat-lbl">Sites Completed Safely</div>
+              <div class="hero-strip-col">
+                <div class="hero-strip-title">RENTAL</div>
+                <div class="hero-strip-sub">PROJECT-BASED HIRE</div>
               </div>
-              <div class="stat-item">
-                <div class="stat-val">24h</div>
-                <div class="stat-lbl">Express Depot Dispatch</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-val">100%</div>
-                <div class="stat-lbl">BIS IS:2750 & IS:1239 Grade</div>
+              <div class="hero-strip-col">
+                <div class="hero-strip-title">BANGALORE</div>
+                <div class="hero-strip-sub">LOCAL ENQUIRIES</div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Core Services 3-Pillar Section -->
+        <!-- AVAILABLE RENTALS SECTION (Screenshot 1) -->
         <section class="section" style="background: var(--bg-forest-deep); border-top: 1px solid var(--border-line); border-bottom: 1px solid var(--border-line);">
           <div class="container">
-            <div style="text-align: center; max-width: 680px; margin: 0 auto 2.5rem auto;">
-              <div class="micro-label">[ THREE CORE DIVISIONS ]</div>
-              <h2 style="font-size: clamp(1.75rem, 3vw, 2.4rem); margin: 0.5rem 0 0.75rem 0;">
-                Heavy Equipment Rentals for Every Scale
-              </h2>
-              <p style="font-size: 0.9rem; color: var(--text-muted);">
-                Select an equipment category below for engineering specs, safe working loads, real <a href="#projects" onclick="switchPage('projects')" class="inline-link">Bangalore site case studies</a>, and WhatsApp booking.
-              </p>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.25rem; flex-wrap: wrap; gap: 1rem;">
+              <div style="max-width: 650px;">
+                <div class="micro-label" style="color: var(--accent-gold); margin-bottom: 0.35rem;">— AVAILABLE RENTALS</div>
+                <h2 style="font-size: clamp(1.85rem, 3.4vw, 2.5rem); margin: 0 0 0.5rem 0; line-height: 1.2;">
+                  The right system for the work.
+                </h2>
+                <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+                  Rental duration, configuration and current stock vary by project. Call us to confirm the right equipment and availability for your dates.
+                </p>
+              </div>
+              <a href="tel:+919880504007" class="btn-hero-call" style="padding: 0.75rem 1.4rem;">
+                📞 Call 98805 04007
+              </a>
             </div>
 
             <div class="grid-3">
-              <!-- Service Card 1 -->
-              <div class="card" style="cursor: pointer;" onclick="switchPage('scaffolding')">
-                <div style="height: 190px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
-                  <img 
-                    src="/images/cuplock-facade.jpg" 
-                    alt="Heavy MS Cuplock Scaffolding rental in Bangalore"
-                    style="width: 100%; height: 100%; object-fit: cover;"
-                  />
+              <!-- Card 1: Aluminium scaffolding -->
+              <div class="rental-system-card">
+                <div class="rental-card-img">
+                  <img src="/images/aluminium-tower.jpg" alt="Aluminium scaffolding mobile access tower on lockable castors" />
+                  <div class="rental-card-badge">CALL TO CONFIRM</div>
                 </div>
-                <div class="micro-label">CORE DIVISION 01</div>
-                <h3 style="margin: 0.4rem 0 0.6rem 0; font-size: 1.25rem;">Scaffolding Rental</h3>
-                <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
-                  Certified <a href="#scaffolding" onclick="switchPage('scaffolding')" class="inline-link">MS Cuplock systems</a>, modular H-frames, cantilever brackets, and lightweight mobile aluminium towers for commercial facade glazing, painting, and architectural restoration.
-                </p>
-                <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font-size: 0.84rem; font-weight: 700; color: var(--accent-gold);">View System Specs &rarr;</span>
-                  <span style="font-size: 0.72rem; background: var(--bg-forest-deep); padding: 0.2rem 0.6rem; border-radius: 4px; color: var(--text-muted);">IS:2750 Certified</span>
+                <div class="rental-card-body">
+                  <h3 class="rental-card-title">Aluminium scaffolding</h3>
+                  <p class="rental-card-desc">
+                    Lightweight, easy-to-assemble access for painting, maintenance, electrical, HVAC and facility work.
+                  </p>
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20please%20check%20availability%20for%20Aluminium%20Scaffolding%20rental." target="_blank" rel="noopener noreferrer" class="rental-card-btn">
+                    CHECK AVAILABILITY &rarr;
+                  </a>
                 </div>
               </div>
 
-              <!-- Service Card 2 -->
-              <div class="card" style="cursor: pointer;" onclick="switchPage('event')">
-                <div style="height: 190px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
-                  <img 
-                    src="/images/event-staging-truss.jpg" 
-                    alt="Concert stage scaffolding and lighting truss rental Bangalore"
-                    style="width: 100%; height: 100%; object-fit: cover;"
-                  />
+              <!-- Card 2: MS Cuplock scaffolding -->
+              <div class="rental-system-card">
+                <div class="rental-card-img">
+                  <img src="/images/cuplock-facade.jpg" alt="Heavy MS Cuplock scaffolding system for construction projects" />
+                  <div class="rental-card-badge">CALL TO CONFIRM</div>
                 </div>
-                <div class="micro-label">CORE DIVISION 02</div>
-                <h3 style="margin: 0.4rem 0 0.6rem 0; font-size: 1.25rem;">Event Equipment Rental</h3>
-                <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
-                  Heavy concert stages, LED video wall towers, delay PA speaker rigging, tiered spectator grandstands, and heavy-duty <a href="#event" onclick="switchPage('event')" class="inline-link">Mojo crowd control barricades</a> for high-footfall gatherings.
-                </p>
-                <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font-size: 0.84rem; font-weight: 700; color: var(--accent-gold);">View Stage Specs &rarr;</span>
-                  <span style="font-size: 0.72rem; background: var(--bg-forest-deep); padding: 0.2rem 0.6rem; border-radius: 4px; color: var(--text-muted);">Palace Grounds & BIEC</span>
+                <div class="rental-card-body">
+                  <h3 class="rental-card-title">MS Cuplock scaffolding</h3>
+                  <p class="rental-card-desc">
+                    Strong, dependable systems for construction, industrial work and heavy-duty access requirements.
+                  </p>
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20please%20check%20availability%20for%20MS%20Cuplock%20Scaffolding%20rental." target="_blank" rel="noopener noreferrer" class="rental-card-btn">
+                    CHECK AVAILABILITY &rarr;
+                  </a>
                 </div>
               </div>
 
-              <!-- Service Card 3 -->
-              <div class="card" style="cursor: pointer;" onclick="switchPage('construction')">
-                <div style="height: 190px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem;">
-                  <img 
-                    src="/images/props-formwork.jpg" 
-                    alt="Adjustable steel acrow props and shuttering plates rental Bangalore"
-                    style="width: 100%; height: 100%; object-fit: cover;"
-                  />
+              <!-- Card 3: Mobile scaffolding -->
+              <div class="rental-system-card">
+                <div class="rental-card-img">
+                  <img src="/images/hero-scaffolding.jpg" alt="Mobile scaffolding system for flexible site relocation" />
+                  <div class="rental-card-badge">CALL TO CONFIRM</div>
                 </div>
-                <div class="micro-label">CORE DIVISION 03</div>
-                <h3 style="margin: 0.4rem 0 0.6rem 0; font-size: 1.25rem;">Construction Equipment</h3>
-                <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
-                  Heavy-load telescopic <a href="#construction" onclick="switchPage('construction')" class="inline-link">Acrow props (2m to 4m)</a>, telescopic spans, steel shuttering plates, beam clamps, and safety green debris nets for multi-story concrete casting.
+                <div class="rental-card-body">
+                  <h3 class="rental-card-title">Mobile scaffolding</h3>
+                  <p class="rental-card-desc">
+                    Flexible access that can be moved efficiently as work locations change across a project.
+                  </p>
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20please%20check%20availability%20for%20Mobile%20Scaffolding%20rental." target="_blank" rel="noopener noreferrer" class="rental-card-btn">
+                    CHECK AVAILABILITY &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- OUR SERVICES SECTION (Exact Content of Screenshot 2) -->
+        <section class="section" id="section-services">
+          <div class="container">
+            <div style="max-width: 750px; margin-bottom: 2.5rem;">
+              <div class="micro-label" style="color: var(--accent-gold); margin-bottom: 0.35rem;">— OUR SERVICES</div>
+              <h2 style="font-size: clamp(1.85rem, 3.4vw, 2.6rem); margin: 0 0 0.6rem 0; line-height: 1.2;">
+                Scaffolding rental solutions built around your project.
+              </h2>
+              <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+                Choose the right access system for construction, maintenance and site requirements without the burden of equipment ownership.
+              </p>
+            </div>
+
+            <div class="services-grid-6">
+              <!-- 1. Aluminium Scaffolding Rental -->
+              <div class="service-feature-card">
+                <div class="service-icon-wrap">🪜</div>
+                <h3 class="service-card-title">Aluminium Scaffolding Rental</h3>
+                <p class="service-card-text">
+                  Lightweight, easy-to-assemble and mobile scaffolding for painting, maintenance, electrical, HVAC and facility work.
                 </p>
-                <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font-size: 0.84rem; font-weight: 700; color: var(--accent-gold);">View Formwork Specs &rarr;</span>
-                  <span style="font-size: 0.72rem; background: var(--bg-forest-deep); padding: 0.2rem 0.6rem; border-radius: 4px; color: var(--text-muted);">Slab & Beam Staging</span>
+                <div class="service-card-action">
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20I%20am%20interested%20in%20Aluminium%20Scaffolding%20Rental." target="_blank" rel="noopener noreferrer" class="service-link">
+                    Rent Aluminium Scaffolding &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <!-- 2. MS Cuplock Scaffolding -->
+              <div class="service-feature-card">
+                <div class="service-icon-wrap">🏗️</div>
+                <h3 class="service-card-title">MS Cuplock Scaffolding</h3>
+                <p class="service-card-text">
+                  Strong and reliable scaffolding for construction projects, industrial work and heavy-duty access requirements.
+                </p>
+                <div class="service-card-action">
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20I%20am%20interested%20in%20MS%20Cuplock%20Scaffolding%20Rental." target="_blank" rel="noopener noreferrer" class="service-link">
+                    Rent MS Cuplock &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <!-- 3. Mobile Scaffolding -->
+              <div class="service-feature-card">
+                <div class="service-icon-wrap">🛞</div>
+                <h3 class="service-card-title">Mobile Scaffolding</h3>
+                <p class="service-card-text">
+                  Flexible access solutions that can be moved efficiently when work locations change across a project.
+                </p>
+                <div class="service-card-action">
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20I%20am%20interested%20in%20Mobile%20Scaffolding%20Rental." target="_blank" rel="noopener noreferrer" class="service-link">
+                    Rent Mobile Scaffolding &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <!-- 4. Construction Scaffolding -->
+              <div class="service-feature-card">
+                <div class="service-icon-wrap">🏢</div>
+                <h3 class="service-card-title">Construction Scaffolding</h3>
+                <p class="service-card-text">
+                  Reliable rental systems for building construction and general site access requirements.
+                </p>
+                <div class="service-card-action">
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20I%20am%20interested%20in%20Construction%20Scaffolding%20Rental." target="_blank" rel="noopener noreferrer" class="service-link">
+                    Rent Construction Scaffolding &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <!-- 5. Painting & Renovation -->
+              <div class="service-feature-card">
+                <div class="service-icon-wrap">🖌️</div>
+                <h3 class="service-card-title">Painting & Renovation</h3>
+                <p class="service-card-text">
+                  Practical access solutions for painting, renovation, repair and building maintenance applications.
+                </p>
+                <div class="service-card-action">
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20I%20am%20interested%20in%20Scaffolding%20for%20Painting%20and%20Renovation." target="_blank" rel="noopener noreferrer" class="service-link">
+                    Rent for Painting &amp; Renovation &rarr;
+                  </a>
+                </div>
+              </div>
+
+              <!-- 6. Industrial Maintenance -->
+              <div class="service-feature-card">
+                <div class="service-icon-wrap">⚙️</div>
+                <h3 class="service-card-title">Industrial Maintenance</h3>
+                <p class="service-card-text">
+                  Professional scaffolding solutions for industrial maintenance, electrical, HVAC and facility management work.
+                </p>
+                <div class="service-card-action">
+                  <a href="https://wa.me/919880504007?text=Hello%20PARRY'S,%20I%20am%20interested%20in%20Scaffolding%20for%20Industrial%20Maintenance." target="_blank" rel="noopener noreferrer" class="service-link">
+                    Rent for Industrial Maintenance &rarr;
+                  </a>
                 </div>
               </div>
             </div>
@@ -1675,72 +2060,7 @@
           </div>
         </section>
 
-        <!-- ============================================================= -->
-        <!-- INTERACTIVE SCAFFOLDING RENTAL COST ESTIMATOR                 -->
-        <!-- ============================================================= -->
-        <section class="section">
-          <div class="container">
-            <div style="max-width: 860px; margin: 0 auto;">
-              <div style="text-align: center; margin-bottom: 1.5rem;">
-                <div class="micro-label">[ QUICK BUDGET ESTIMATE ]</div>
-                <h2 style="font-size: clamp(1.75rem, 3vw, 2.3rem); margin: 0.4rem 0 0.6rem 0;">
-                  Scaffolding Rental Cost Estimator
-                </h2>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">
-                  Calculate an approximate budget for your project and dispatch it instantly to our WhatsApp desk for formal confirmation.
-                </p>
-              </div>
 
-              <div class="calc-box">
-                <div class="calc-inputs-grid">
-                  <div class="calc-field">
-                    <label for="calcEquip">Equipment Type</label>
-                    <select id="calcEquip" onchange="calculateRentalEstimate()">
-                      <option value="cuplock">MS Cuplock Facade Scaffolding</option>
-                      <option value="aluminium">Aluminium Mobile Access Tower</option>
-                      <option value="props">Adjustable Acrow Props (Slab Shoring)</option>
-                      <option value="plates">Steel Shuttering Plates</option>
-                      <option value="stage">Heavy Concert Staging Platform</option>
-                    </select>
-                  </div>
-
-                  <div class="calc-field">
-                    <label for="calcQty" id="calcQtyLabel">Quantity / Scope (Sq.Ft / Units)</label>
-                    <input type="number" id="calcQty" value="2500" min="50" step="50" oninput="calculateRentalEstimate()" />
-                  </div>
-
-                  <div class="calc-field">
-                    <label for="calcDuration">Rental Period (Days)</label>
-                    <input type="number" id="calcDuration" value="30" min="1" max="365" oninput="calculateRentalEstimate()" />
-                  </div>
-                </div>
-
-                <div class="calc-result-panel">
-                  <div>
-                    <div style="font-size: 0.76rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em; font-weight: 700;">
-                      Estimated Base Rental Range
-                    </div>
-                    <div id="calcTotalDisplay" style="font-size: 1.85rem; font-weight: 800; color: var(--accent-gold); margin-top: 0.2rem;">
-                      ₹ 1,625 / month
-                    </div>
-                    <div style="font-size: 0.74rem; color: var(--text-muted);">
-                      *Excludes refundable security deposit, GST (18%), and transport. Final rates confirmed via BOQ.
-                    </div>
-                  </div>
-
-                  <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
-                    <button onclick="sendEstimateWhatsApp()" class="btn-whatsapp">
-                      💬 Send Estimate to WhatsApp &rarr;
-                    </button>
-                    <a href="tel:+919880504007" class="btn-outline">
-                      📞 Discuss with Yard Manager
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <!-- Quick Project Preview & Direct WhatsApp Prompt -->
         <section class="section" style="background: var(--bg-forest-deep); border-top: 1px solid var(--border-line);">
@@ -3116,71 +3436,10 @@
       }
 
       // =================================================================
-      // 8. INTERACTIVE RENTAL ESTIMATOR CALCULATOR
-      // =================================================================
-      function calculateRentalEstimate() {
-        const system = document.getElementById('calcSystem')?.value || 'cuplock';
-        const area = parseFloat(document.getElementById('calcArea')?.value) || 1200;
-        const days = parseInt(document.getElementById('calcDays')?.value, 10) || 30;
-        const withErection = document.getElementById('calcErection')?.checked || false;
-
-        let monthlyRatePerUnit = 14; // INR per sq.ft for 30 days
-        let erectionPerUnit = withErection ? 5.5 : 0;
-        let depositMultiplier = 1.2;
-
-        if (system === 'aluminium') {
-          // Aluminium mobile access tower (calculated by height/area equivalent)
-          monthlyRatePerUnit = 38;
-          erectionPerUnit = withErection ? 12 : 0;
-          depositMultiplier = 1.5;
-        } else if (system === 'props') {
-          // Steel telescopic props / formwork spans
-          monthlyRatePerUnit = 9;
-          erectionPerUnit = withErection ? 3.5 : 0;
-          depositMultiplier = 1.3;
-        }
-
-        const dailyRatePerUnit = (monthlyRatePerUnit + erectionPerUnit) / 30;
-        let totalRent = Math.round(dailyRatePerUnit * area * days);
-        if (totalRent < 3500) totalRent = 3500; // minimum bill
-
-        let securityDeposit = Math.round(totalRent * 0.45);
-        if (securityDeposit < 5000) securityDeposit = 5000;
-
-        // Update UI
-        const estRentalEl = document.getElementById('estRental');
-        const estDepositEl = document.getElementById('estDeposit');
-        const estDispatchEl = document.getElementById('estDispatch');
-
-        if (estRentalEl) estRentalEl.textContent = '₹' + totalRent.toLocaleString('en-IN');
-        if (estDepositEl) estDepositEl.textContent = '₹' + securityDeposit.toLocaleString('en-IN') + ' (100% Refundable)';
-        if (estDispatchEl) estDispatchEl.textContent = 'Guaranteed 24-Hour Express Dispatch from RT Nagar Depot';
-      }
-
-      function sendEstimateWhatsApp() {
-        const system = document.getElementById('calcSystem')?.value || 'cuplock';
-        const area = document.getElementById('calcArea')?.value || '1200';
-        const days = document.getElementById('calcDays')?.value || '30';
-        const withErection = document.getElementById('calcErection')?.checked ? 'Yes (with Certified Riggers)' : 'Material Only';
-        const estRental = document.getElementById('estRental')?.textContent || '';
-
-        const systemNames = {
-          cuplock: 'MS Cuplock Heavy System (48.3mm OD)',
-          aluminium: 'Aluminium Mobile Access Tower',
-          props: 'MS Telescopic Acrow Props & Spans'
-        };
-
-        const msg = `Hello PARRY'S Scaffolding,%0A%0AI used your website rental calculator for an estimate:%0A- System: ${encodeURIComponent(systemNames[system] || system)}%0A- Elevation / Quantity: ${encodeURIComponent(area)} Sq. Ft / units%0A- Hire Duration: ${encodeURIComponent(days)} days%0A- Assembly Erection: ${encodeURIComponent(withErection)}%0A- Estimated Rent: ${encodeURIComponent(estRental)}%0A%0APlease confirm material availability and dispatch schedule to my site.`;
-
-        window.open(`https://wa.me/919880504007?text=${msg}`, '_blank');
-      }
-
-      // =================================================================
-      // 9. INITIALIZE ON LOAD
+      // 8. INITIALIZE ON LOAD
       // =================================================================
       window.addEventListener('DOMContentLoaded', () => {
         populateProjectGrids();
-        calculateRentalEstimate();
         
         // Check hash in URL on initial load
         const initialHash = window.location.hash.replace('#', '');
