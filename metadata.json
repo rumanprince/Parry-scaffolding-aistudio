@@ -1,0 +1,6 @@
+{
+  "name": "PARRY'S Scaffolding & Rentals",
+  "description": "Premium industrial & commercial scaffolding and formwork rentals in Bangalore, India. Heavy-duty cuplock, H-frames, and architectural access platforms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
